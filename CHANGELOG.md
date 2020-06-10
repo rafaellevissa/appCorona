@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Marca do projeto (ícone, splash e logo)
 - Conexão com a api do Corona: https://covid19-brazil-api-docs.now.sh/
-- Layout com mapa (google maps)
+- Layout com mapa (google maps): [referência](https://github.com/jeffeloy/dev-radar)
 
 
 ## [0.1.0] - 2020-05-28
