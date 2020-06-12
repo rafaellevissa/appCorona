@@ -5,7 +5,7 @@ import Logo from '../assets/logo.png';
 import MapView, {Marker, Callout} from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 
-export default function Home(){
+export default function Home(navigation){
     const[currentRegion, setCurrentRegion] = useState(null);
     useEffect(()=>{
         async function loadInitialPosition(){
@@ -14,11 +14,11 @@ export default function Home(){
                 const{coords} = await getCurrentPositionAsync({
                     enableHighAccuracy: true,
                 });
-                const {latitude, longitude} = coords;
+                const {latitute, longitude} = coords;
 
                 setCurrentRegion({
-                    latitute,
-                    longitude,
+                    latitute: 10,
+                    longitude: 10,
                     latitudeDelta: 10.0,
                     longitudeDelta: 15.0,
                 })
@@ -27,6 +27,10 @@ export default function Home(){
         }
         loadInitialPosition();
     }, []);
+
+    async function loadPersonPosition(){
+        const{latitute, longitude} = currentRegion;                
+    }
 
     function handleRegionChange(region){
         setCurrentRegion(region);
@@ -41,6 +45,12 @@ export default function Home(){
             <View style={styles.header}>
                 <Image source={Logo}></Image>
             </View>
+            <MapView
+                onRegionChangeComplete = {handleRegionChange}
+                initialRegion = {currentRegion}
+                style = {styles.map}
+            >
+            </MapView>
         </View>
     );
 }
