@@ -5,7 +5,7 @@ import Logo from '../assets/logo.png';
 import MapView, {Marker, Callout} from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 
-export default function Home(navigation){
+export default function Home(){
     const[currentRegion, setCurrentRegion] = useState(null);
     useEffect(()=>{
         async function loadInitialPosition(){
@@ -17,8 +17,8 @@ export default function Home(navigation){
                 const {latitute, longitude} = coords;
 
                 setCurrentRegion({
-                    latitute: 10,
-                    longitude: 10,
+                    latitute,
+                    longitude,
                     latitudeDelta: 10.0,
                     longitudeDelta: 15.0,
                 })
@@ -32,8 +32,8 @@ export default function Home(navigation){
         const{latitute, longitude} = currentRegion;                
     }
 
-    function handleRegionChange(region){
-        setCurrentRegion(region);
+    function handleRegionChange(Region){
+        setCurrentRegion(Region);
     }
 
     if(!currentRegion){

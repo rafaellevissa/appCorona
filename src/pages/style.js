@@ -12,5 +12,8 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
     },
+    map: {
+        flex: 1
+    },
 });
 
